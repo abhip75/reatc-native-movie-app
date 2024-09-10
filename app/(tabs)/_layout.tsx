@@ -5,6 +5,7 @@ import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
+
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
@@ -24,14 +25,31 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="trending"
         options={{
-          title: 'Explore',
+          title: 'Trending',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <TabBarIcon
+              name={focused ? 'trending-up' : 'trending-up-outline'}
+              color={color}
+            />
           ),
         }}
       />
+
+      <Tabs.Screen
+        name="tv"
+        options={{
+          title: 'Tv Shows',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+            name={focused ? 'tv' : 'tv-outline'} // Use TabBarIcon with 'tv' and 'tv-outline'
+            color={color}
+          />
+          ),
+        }}
+      />
+      
     </Tabs>
   );
 }
